@@ -30,14 +30,19 @@ public class Opdr14b extends Applet {
     }
 
     public void paint(Graphics g) {
-        if (computerZet != 0) {
-            g.drawString("De computer heeft " + computerZet + " smileys weggehaald.", 20, 75);
+        if (smileys <= 0) {
+            g.drawString("het spel is afgelopen", 20, 120);
         }
-        g.drawString("Aantal resterende smileys: " + smileys + ". Jouw beurt", 20, 95);
+        else {
+            if (computerZet != 0) {
+                g.drawString("De computer heeft " + computerZet + " smileys weggehaald.", 20, 75);
+            }
 
+        g.drawString("Aantal resterende smileys: " + smileys + ". Jouw beurt", 20, 95);
+    }
         for (int i = 0; i < smileys; i++) {
-            int row = i / 4;
-            int col = i % 4;
+            int row = i / 5;
+            int col = i % 5;
             g.drawImage(afbeelding, 70 * col, 100 + 100 * row, 70, 70, this);
         }
     }
